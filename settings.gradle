@@ -1,0 +1,5 @@
+rootProject.name = "Grocery Shopping"
+include ':app'
+include ':domain'
+include ':data'
+include ':usecases'
