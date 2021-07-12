@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:scrollbars="vertical"
-            tools:listitem="@layout/grocery_list_item" />
+            tools:listitem="@layout/grocery_body_item" />
 
         <ImageView
             android:id="@+id/status_image"
