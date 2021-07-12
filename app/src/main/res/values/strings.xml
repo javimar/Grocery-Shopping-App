@@ -2,6 +2,9 @@
 
     <string name="app_name">Grocery Shopping</string>
 
+    <!-- TEXTS -->
+    <string name="add_button">Add</string>
+
     <!-- ERROR STRINGS -->
     <string name="err_nointernet">There is no internet connection</string>
     <string name="err_server">There was an error while retrieving the grocery list</string>
