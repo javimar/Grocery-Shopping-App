@@ -54,7 +54,7 @@ class GroceryListFragment : Fragment(), ShopInterface {
 
             is UIModel.Loaded -> {
                 binding.statusImage.visibility = GONE
-                initRecyclerView(status.groceries)
+                refreshRecyclerView(status.groceries)
             }
 
             // First entry point
@@ -66,21 +66,24 @@ class GroceryListFragment : Fragment(), ShopInterface {
                 if (requireActivity().isConnected) {
                     requireActivity().toast(R.string.err_server, Toast.LENGTH_SHORT)
                 } else {
-                    //binding.statusImage.setImageResource(R.drawable.ic_connection_error)
                     requireActivity().toast(R.string.err_nointernet, Toast.LENGTH_SHORT)
                 }
             }
         }
     }
 
-    private fun initRecyclerView(groceries: List<Grocery>) {
+    private fun refreshRecyclerView(groceries: List<Grocery>) {
 
         val groupAdapter = GroupAdapter<GroupieViewHolder>()
             .apply {
                 groceries.groupBy(Grocery::type)
                     .entries.map { (groceryType, groceryList) ->
                         val section = Section()
-                        section.setHeader(GroceryHeader(groceryType, 0.0))
+                        var total = 0.0
+                        groceryList.forEach {
+                            total += it.price * it.quantity
+                        }
+                        section.setHeader(GroceryHeader(groceryType, total))
                         section.addAll(groceryList.toGroceryItem())
                         this.add(section)
                     }

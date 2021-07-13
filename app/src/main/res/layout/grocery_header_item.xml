@@ -9,8 +9,8 @@
             type="String" />
 
         <variable
-            name="grocery"
-            type="eu.javimar.domain.Grocery" />
+            name="price"
+            type="Double" />
 
     </data>
 
@@ -39,8 +39,7 @@
             android:layout_marginEnd="16dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textStyle="bold"
-
-
+            app:formatCurrency="@{price}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="15,99" />

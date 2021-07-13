@@ -10,7 +10,7 @@ class GroceryHeader(private val groceryType: String,
 
     override fun bind(viewBinding: GroceryHeaderItemBinding, position: Int) {
 
-
+        viewBinding.price = price
         viewBinding.groceryType = groceryType
     }
     override fun getLayout() = R.layout.grocery_header_item

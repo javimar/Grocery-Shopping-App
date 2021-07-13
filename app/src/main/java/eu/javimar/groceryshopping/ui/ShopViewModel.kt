@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.javimar.domain.Grocery
+import eu.javimar.groceryshopping.data.CartSummary
 import eu.javimar.usecases.AddItemToCart
 import eu.javimar.usecases.GetGroceryList
 import eu.javimar.usecases.SubstractItemFromCart
@@ -17,9 +18,6 @@ class ShopViewModel @Inject constructor(
     private val getGroceryList: GetGroceryList,
     private val addItemToCart: AddItemToCart,
     private val substractItemFromCart: SubstractItemFromCart): ViewModel() {
-
-
-
 
     private val _status = MutableLiveData<UIModel>()
     val status: LiveData<UIModel>
@@ -59,12 +57,14 @@ class ShopViewModel @Inject constructor(
     fun addItemToCart(id: Int) {
         viewModelScope.launch {
             addItemToCart.invoke(id)
+            listGroceries()
         }
     }
 
     fun substractItemFromCart(id: Int) {
         viewModelScope.launch {
             substractItemFromCart.invoke(id)
+            listGroceries()
         }
     }
 
