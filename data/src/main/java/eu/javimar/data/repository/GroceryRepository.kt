@@ -22,4 +22,12 @@ class GroceryRepository(private val remoteDataSource: RemoteDataSource,
         val groceries = remoteDataSource.getGroceryList()
         localDataSource.saveGroceries(groceries)
     }
+
+    suspend fun addItem(id: Int) {
+        localDataSource.increaseCartQuantity(id)
+    }
+
+    suspend fun substractItem(id: Int) {
+        localDataSource.decreaseCartQuantity(id)
+    }
 }

@@ -101,10 +101,10 @@ class GroceryListFragment : Fragment(), ShopInterface {
     }
 
     override fun addGrocery(grocery: Grocery) {
-
+        viewModel.addItemToCart(grocery.id)
     }
 
     override fun deleteGrocery(grocery: Grocery) {
-
+        viewModel.substractItemFromCart(grocery.id)
     }
 }
