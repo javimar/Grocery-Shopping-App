@@ -59,7 +59,7 @@ class GroceryListFragment : Fragment(), ShopInterface {
 
             // First entry point
             is UIModel.InitialState -> {
-                viewModel.listGroceries()
+                viewModel.refreshGroceryList()
             }
 
             is UIModel.Error -> {

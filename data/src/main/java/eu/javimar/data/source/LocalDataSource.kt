@@ -7,7 +7,7 @@ interface LocalDataSource {
     suspend fun isGroceryListEmpty(): Boolean
     suspend fun getAllGroceries(): List<Grocery>
     suspend fun saveGroceries(grocery: List<Grocery>)
-    suspend fun resetCart(id: Int)
+    suspend fun resetCart()
     suspend fun increaseCartQuantity(id: Int)
     suspend fun decreaseCartQuantity(id: Int)
 }

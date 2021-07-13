@@ -7,13 +7,15 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import eu.javimar.groceryshopping.R
+import eu.javimar.groceryshopping.common.CheckoutInterface
 import eu.javimar.groceryshopping.databinding.CartFragmentBinding
 import eu.javimar.groceryshopping.ui.ShopViewModel
 
 @AndroidEntryPoint
-class CartFragment: Fragment() {
+class CartFragment: Fragment(), CheckoutInterface {
 
     private lateinit var binding: CartFragmentBinding
     private val viewModel: ShopViewModel by activityViewModels()
@@ -27,13 +29,24 @@ class CartFragment: Fragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.apply {
-            //viewmodel = viewModel
             lifecycleOwner = this@CartFragment
+            checkout = this@CartFragment
+            cancelButton.setOnClickListener {
+                cancelCart()
+            }
         }
+    }
 
+    override fun checkoutCart() {
+        viewModel.resetCart()
+        this.findNavController().navigate(CartFragmentDirections
+            .actionCartFragmentToEmptyCartFragment())
+    }
 
+    private fun cancelCart() {
+        this.findNavController().navigate(CartFragmentDirections
+            .actionCartFragmentToGroceryListFragment())
     }
 }

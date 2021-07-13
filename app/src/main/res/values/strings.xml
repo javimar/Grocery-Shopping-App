@@ -9,6 +9,9 @@
     <string name="add_item_button">+</string>
     <string name="delete_item_button">-</string>
     <string name="checkout_item_button">Checkout</string>
+    <string name="checkout_cancel_button">Cancel</string>
+    <string name="thankyoumessage">Thank you!</string>
+    <string name="continue_shopping_button">Back to shopping</string>
 
     <!-- ERROR STRINGS -->
     <string name="err_nointernet">There is no internet connection</string>

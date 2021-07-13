@@ -18,6 +18,11 @@
             android:id="@+id/action_cartFragment_to_emptyCartFragment"
             app:destination="@id/emptyCartFragment"
             app:popUpTo="@id/groceryListFragment" />
+        <action
+            android:id="@+id/action_cartFragment_to_groceryListFragment"
+            app:destination="@id/groceryListFragment"
+            app:popUpTo="@id/groceryListFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/emptyCartFragment"
@@ -26,7 +31,9 @@
         android:label="@string/empty_cart_label" >
         <action
             android:id="@+id/action_emptyCartFragment_to_groceryListFragment"
-            app:destination="@id/groceryListFragment" />
+            app:destination="@id/groceryListFragment"
+            app:popUpTo="@id/groceryListFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
 </navigation>

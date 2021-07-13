@@ -18,16 +18,11 @@ class GroceryRepository(private val remoteDataSource: RemoteDataSource,
     }
 
     private suspend fun callAPIGroceries() {
-
         val groceries = remoteDataSource.getGroceryList()
         localDataSource.saveGroceries(groceries)
     }
 
-    suspend fun addItem(id: Int) {
-        localDataSource.increaseCartQuantity(id)
-    }
-
-    suspend fun substractItem(id: Int) {
-        localDataSource.decreaseCartQuantity(id)
-    }
+    suspend fun addItem(id: Int) = localDataSource.increaseCartQuantity(id)
+    suspend fun substractItem(id: Int) = localDataSource.decreaseCartQuantity(id)
+    suspend fun resetCart() = localDataSource.resetCart()
 }

@@ -6,9 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.javimar.domain.Grocery
-import eu.javimar.groceryshopping.data.CartSummary
 import eu.javimar.usecases.AddItemToCart
 import eu.javimar.usecases.GetGroceryList
+import eu.javimar.usecases.ResetCart
 import eu.javimar.usecases.SubstractItemFromCart
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -17,7 +17,8 @@ import javax.inject.Inject
 class ShopViewModel @Inject constructor(
     private val getGroceryList: GetGroceryList,
     private val addItemToCart: AddItemToCart,
-    private val substractItemFromCart: SubstractItemFromCart): ViewModel() {
+    private val substractItemFromCart: SubstractItemFromCart,
+    private val resetCart: ResetCart): ViewModel() {
 
     private val _status = MutableLiveData<UIModel>()
     val status: LiveData<UIModel>
@@ -34,7 +35,7 @@ class ShopViewModel @Inject constructor(
         object Error : UIModel()
     }
 
-    fun listGroceries()
+    fun refreshGroceryList()
     {
         viewModelScope.launch {
             _status.value = UIModel.Loading
@@ -57,17 +58,21 @@ class ShopViewModel @Inject constructor(
     fun addItemToCart(id: Int) {
         viewModelScope.launch {
             addItemToCart.invoke(id)
-            listGroceries()
+            refreshGroceryList()
         }
     }
 
     fun substractItemFromCart(id: Int) {
         viewModelScope.launch {
             substractItemFromCart.invoke(id)
-            listGroceries()
+            refreshGroceryList()
         }
     }
 
-
-
+    fun resetCart() {
+        viewModelScope.launch {
+            resetCart.invoke()
+            refreshGroceryList()
+        }
+    }
 }

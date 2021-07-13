@@ -7,6 +7,7 @@ import dagger.hilt.android.components.ActivityRetainedComponent
 import eu.javimar.data.repository.GroceryRepository
 import eu.javimar.usecases.AddItemToCart
 import eu.javimar.usecases.GetGroceryList
+import eu.javimar.usecases.ResetCart
 import eu.javimar.usecases.SubstractItemFromCart
 
 @Module
@@ -24,4 +25,8 @@ class MainDIModule {
     @Provides
     fun substractItemFromCartRepository(groceryRepository: GroceryRepository) =
         SubstractItemFromCart(groceryRepository)
+
+    @Provides
+    fun resetCartRepository(groceryRepository: GroceryRepository) =
+        ResetCart(groceryRepository)
 }

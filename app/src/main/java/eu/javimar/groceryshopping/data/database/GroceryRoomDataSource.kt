@@ -23,8 +23,8 @@ class GroceryRoomDataSource(db: GroceryDatabase): LocalDataSource {
             groceryDao.insertGroceries(grocery.map { it.toRoomGrocery() }) }
     }
 
-    override suspend fun resetCart(id: Int) =
-        withContext(Dispatchers.IO) { groceryDao.resetQuantity() }
+    override suspend fun resetCart() =
+        withContext(Dispatchers.IO) { groceryDao.resetCart() }
 
     override suspend fun decreaseCartQuantity(id: Int) =
         withContext(Dispatchers.IO) { groceryDao.decreaseQuantity(id) }
