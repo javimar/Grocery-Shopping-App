@@ -9,7 +9,8 @@ fun ServerGrocery.toDomainGrocery(): Grocery =
         id,
         name,
         price,
-        type
+        type,
+        0
     )
 
 fun Grocery.toRoomGrocery(): DomainGrocery =
@@ -17,7 +18,8 @@ fun Grocery.toRoomGrocery(): DomainGrocery =
         id,
         name,
         price,
-        type
+        type,
+        quantity
     )
 
 fun DomainGrocery.toDomainGrocery(): Grocery =
@@ -25,5 +27,6 @@ fun DomainGrocery.toDomainGrocery(): Grocery =
         id,
         name,
         price,
-        type
+        type,
+        quantity
     )

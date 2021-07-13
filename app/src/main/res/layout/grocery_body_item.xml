@@ -8,6 +8,10 @@
         <variable
             name="grocery"
             type="eu.javimar.domain.Grocery" />
+        
+        <variable
+            name="shop"
+            type="eu.javimar.groceryshopping.common.ShopInterface" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,6 +40,7 @@
             android:text="@string/add_item_button"
             android:textColor="@color/primary_text"
             android:textSize="24sp"
+            android:onClick="@{() -> shop.addGrocery(grocery)}"
             app:layout_constraintEnd_toStartOf="@+id/delete_item_button"
             app:layout_constraintTop_toTopOf="parent"
             app:rippleColor="#019B16" />
@@ -50,6 +55,7 @@
             android:text="@string/delete_item_button"
             android:textColor="@color/primary_text"
             android:textSize="24sp"
+            android:onClick="@{() -> shop.deleteGrocery(grocery)}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:rippleColor="#FF4081" />

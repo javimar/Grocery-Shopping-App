@@ -8,23 +8,25 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.xwray.groupie.*
 import dagger.hilt.android.AndroidEntryPoint
 import eu.javimar.domain.Grocery
 import eu.javimar.groceryshopping.R
+import eu.javimar.groceryshopping.common.ShopInterface
 import eu.javimar.groceryshopping.common.isConnected
 import eu.javimar.groceryshopping.common.toast
 import eu.javimar.groceryshopping.databinding.GroceryListFragmentBinding
-import eu.javimar.groceryshopping.ui.main.GroceryListViewModel.UIModel
+import eu.javimar.groceryshopping.ui.ShopViewModel
+import eu.javimar.groceryshopping.ui.ShopViewModel.UIModel
 
 @AndroidEntryPoint
-class GroceryListFragment : Fragment() {
+class GroceryListFragment : Fragment(), ShopInterface {
 
     private lateinit var binding: GroceryListFragmentBinding
-    private val viewModel: GroceryListViewModel by viewModels()
+    private val viewModel: ShopViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,7 +39,7 @@ class GroceryListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.apply {
-            viewmodel = viewModel
+            //viewmodel = viewModel
             lifecycleOwner = this@GroceryListFragment
         }
         viewModel.status.observe(viewLifecycleOwner, Observer(::updateUi))
@@ -94,7 +96,15 @@ class GroceryListFragment : Fragment() {
     // Extension
     private fun List<Grocery>.toGroceryItem(): List<GroceryBody> {
         return this.map {
-            GroceryBody(it)
+            GroceryBody(it, this@GroceryListFragment)
         }
+    }
+
+    override fun addGrocery(grocery: Grocery) {
+
+    }
+
+    override fun deleteGrocery(grocery: Grocery) {
+
     }
 }

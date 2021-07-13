@@ -1,4 +1,4 @@
-package eu.javimar.groceryshopping.ui.main
+package eu.javimar.groceryshopping.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class GroceryListViewModel @Inject constructor(
+class ShopViewModel @Inject constructor(
     private val getGroceryList: GetGroceryList): ViewModel() {
 
 

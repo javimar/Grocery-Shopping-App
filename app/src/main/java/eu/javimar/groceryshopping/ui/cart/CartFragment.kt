@@ -6,14 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import dagger.hilt.android.AndroidEntryPoint
 import eu.javimar.groceryshopping.R
 import eu.javimar.groceryshopping.databinding.CartFragmentBinding
+import eu.javimar.groceryshopping.ui.ShopViewModel
 
 @AndroidEntryPoint
 class CartFragment: Fragment() {
 
     private lateinit var binding: CartFragmentBinding
+    private val viewModel: ShopViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
