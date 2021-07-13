@@ -5,6 +5,9 @@
 
     <data>
         <variable
+            name="checkoutTotal"
+            type="Double" />
+        <variable
             name="checkout"
             type="eu.javimar.groceryshopping.common.CheckoutInterface" />
     </data>
@@ -40,9 +43,10 @@
             android:layout_marginEnd="8dp"
             android:backgroundTint="@color/verdecito"
             android:onClick="@{() -> checkout.checkoutCart()}"
-            android:text="@string/checkout_item_button"
+            app:calcTotalCart="@{checkoutTotal}"
+            app:makeVisible="@{checkoutTotal}"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="14sp"
             app:layout_constraintEnd_toStartOf="@+id/cancel_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/coordinatorLayout"
@@ -56,11 +60,26 @@
             android:layout_marginEnd="24dp"
             android:backgroundTint="@color/rojito"
             android:text="@string/checkout_cancel_button"
+            app:makeVisible="@{checkoutTotal}"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/coordinatorLayout"
             app:rippleColor="@color/rojo2" />
+
+        <ImageView
+            android:id="@+id/empty_cart_icon"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center"
+            android:padding="16dp"
+            app:showImage="@{checkoutTotal}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_empty_cart"
+            tools:ignore="ContentDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

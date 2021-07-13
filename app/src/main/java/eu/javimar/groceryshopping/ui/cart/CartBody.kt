@@ -9,7 +9,7 @@ class CartBody(private val grocery: Grocery): BindableItem<CartBodyItemBinding>(
 
     override fun bind(viewBinding: CartBodyItemBinding, position: Int) {
 
-
+        viewBinding.grocery = grocery
     }
     override fun getLayout() = R.layout.cart_body_item
 

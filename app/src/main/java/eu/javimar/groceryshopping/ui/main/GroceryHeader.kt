@@ -1,7 +1,6 @@
 package eu.javimar.groceryshopping.ui.main
 
 import com.xwray.groupie.databinding.BindableItem
-import eu.javimar.domain.Grocery
 import eu.javimar.groceryshopping.R
 import eu.javimar.groceryshopping.databinding.GroceryHeaderItemBinding
 

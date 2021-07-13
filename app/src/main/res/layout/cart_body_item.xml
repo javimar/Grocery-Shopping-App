@@ -5,10 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="grocery"
+            type="eu.javimar.domain.Grocery" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        app:makeVisible="@{grocery.quantity}"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -18,6 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            app:calcPricePerQuantity="@{grocery}"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -31,6 +35,7 @@
             android:layout_marginEnd="16dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="bold"
+            app:formatCurrency="@{grocery.price * grocery.quantity}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="0,99" />
