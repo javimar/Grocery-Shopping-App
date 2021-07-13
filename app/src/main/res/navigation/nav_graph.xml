@@ -5,10 +5,28 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/groceryListFragment">
 
-
     <fragment
         android:id="@+id/groceryListFragment"
-        tools:layout="@layout/grocery_list_fragment"
         android:name="eu.javimar.groceryshopping.ui.main.GroceryListFragment"
-        android:label="GroceryListFragment" />
+        tools:layout="@layout/grocery_list_fragment"
+        android:label="@string/product_list_label" />
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="eu.javimar.groceryshopping.ui.cart.CartFragment"
+        android:label="@string/shopping_cart_label" >
+        <action
+            android:id="@+id/action_cartFragment_to_emptyCartFragment"
+            app:destination="@id/emptyCartFragment"
+            app:popUpTo="@id/groceryListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/emptyCartFragment"
+        tools:layout="@layout/empty_cart_fragment"
+        android:name="eu.javimar.groceryshopping.ui.finishtx.EmptyCartFragment"
+        android:label="@string/empty_cart_label" >
+        <action
+            android:id="@+id/action_emptyCartFragment_to_groceryListFragment"
+            app:destination="@id/groceryListFragment" />
+    </fragment>
+
 </navigation>

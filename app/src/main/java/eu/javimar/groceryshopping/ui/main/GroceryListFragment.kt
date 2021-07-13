@@ -55,10 +55,6 @@ class GroceryListFragment : Fragment() {
                 initRecyclerView(status.groceries)
             }
 
-            is UIModel.Navigated -> {
-                viewModel.onGroceryNavigated()
-            }
-
             // First entry point
             is UIModel.InitialState -> {
                 viewModel.listGroceries()
@@ -68,7 +64,7 @@ class GroceryListFragment : Fragment() {
                 if (requireActivity().isConnected) {
                     requireActivity().toast(R.string.err_server, Toast.LENGTH_SHORT)
                 } else {
-                    binding.statusImage.setImageResource(R.drawable.ic_connection_error)
+                    //binding.statusImage.setImageResource(R.drawable.ic_connection_error)
                     requireActivity().toast(R.string.err_nointernet, Toast.LENGTH_SHORT)
                 }
             }

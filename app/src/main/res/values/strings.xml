@@ -1,13 +1,21 @@
 <resources>
 
     <string name="app_name">Grocery Shopping</string>
+    <string name="product_list_label">Product List</string>
+    <string name="shopping_cart_label">Shopping Cart</string>
+    <string name="empty_cart_label">Thank you</string>
 
     <!-- TEXTS -->
     <string name="add_item_button">+</string>
     <string name="delete_item_button">-</string>
+    <string name="checkout_item_button">Checkout</string>
 
     <!-- ERROR STRINGS -->
     <string name="err_nointernet">There is no internet connection</string>
     <string name="err_server">There was an error while retrieving the grocery list</string>
+
+    <!-- BOTTOM NAV -->
+    <string name="products_nav_button">Products</string>
+    <string name="cart_nav_button">Cart</string>
 
 </resources>

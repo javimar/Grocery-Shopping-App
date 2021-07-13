@@ -5,6 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import eu.javimar.data.repository.GroceryRepository
+import eu.javimar.data.source.LocalDataSource
 import eu.javimar.data.source.RemoteDataSource
 
 @Module
@@ -12,6 +13,7 @@ import eu.javimar.data.source.RemoteDataSource
 class DataModule {
 
     @Provides
-    fun groceryRepositoryProvider(remoteDataSource: RemoteDataSource) =
-        GroceryRepository(remoteDataSource)
+    fun groceryRepositoryProvider(remoteDataSource: RemoteDataSource,
+                                  localDataSource: LocalDataSource) =
+        GroceryRepository(remoteDataSource, localDataSource)
 }

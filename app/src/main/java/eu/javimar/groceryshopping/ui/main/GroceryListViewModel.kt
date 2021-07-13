@@ -14,6 +14,10 @@ import javax.inject.Inject
 class GroceryListViewModel @Inject constructor(
     private val getGroceryList: GetGroceryList): ViewModel() {
 
+
+
+
+
     private val _status = MutableLiveData<UIModel>()
     val status: LiveData<UIModel>
         get() {
@@ -26,7 +30,6 @@ class GroceryListViewModel @Inject constructor(
         object InitialState : UIModel()
         object Loading : UIModel()
         data class Loaded(val groceries: List<Grocery>) : UIModel()
-        data class Navigated(val id: Int) : UIModel()
         object Error : UIModel()
     }
 
@@ -50,12 +53,4 @@ class GroceryListViewModel @Inject constructor(
         _status.value = UIModel.InitialState
     }
 
-    fun onGroceryClicked(id: Int) {
-        _status.value = UIModel.Navigated(id)
-    }
-
-    fun onGroceryNavigated()
-    {
-        refresh()
-    }
 }
