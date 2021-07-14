@@ -23,7 +23,7 @@ class GroceryRepository(private val remoteDataSource: RemoteDataSource,
     }
 
     suspend fun addItem(id: Int) = localDataSource.increaseCartQuantity(id)
-    suspend fun substractItem(id: Int) = localDataSource.decreaseCartQuantity(id)
+    suspend fun subtractItem(id: Int) = localDataSource.decreaseCartQuantity(id)
     suspend fun resetCart() = localDataSource.resetCart()
 
     // Called only by the WorkManager. We suppose that after a day if the user has not checked out the cart,

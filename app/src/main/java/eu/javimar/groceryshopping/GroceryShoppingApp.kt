@@ -49,7 +49,7 @@ class GroceryShoppingApp: Application(), Configuration.Provider {
                 }
             }.build()
 
-        val repeatingRequest = PeriodicWorkRequestBuilder<RefreshNetworkGroceries>(1, TimeUnit.MINUTES)
+        val repeatingRequest = PeriodicWorkRequestBuilder<RefreshNetworkGroceries>(1, TimeUnit.DAYS)
             .setConstraints(constraints)
             .build()
 

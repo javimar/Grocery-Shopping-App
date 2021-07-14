@@ -19,9 +19,6 @@ class RefreshNetworkGroceries @AssistedInject constructor(
 
         return try {
             reloadGroceriesBackground.invoke()
-
-            println("JAVIER ESTOY DENTRO")
-
             Result.success()
         } catch (exception: HttpException) {
             Result.retry()
