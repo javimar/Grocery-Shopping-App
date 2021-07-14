@@ -10,4 +10,5 @@ interface LocalDataSource {
     suspend fun resetCart()
     suspend fun increaseCartQuantity(id: Int)
     suspend fun decreaseCartQuantity(id: Int)
+    suspend fun deleteGroceries()
 }

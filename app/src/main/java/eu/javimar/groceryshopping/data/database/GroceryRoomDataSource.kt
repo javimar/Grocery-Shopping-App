@@ -31,4 +31,8 @@ class GroceryRoomDataSource(db: GroceryDatabase): LocalDataSource {
 
     override suspend fun increaseCartQuantity(id: Int) =
         withContext(Dispatchers.IO) { groceryDao.increaseQuantity(id) }
+
+    override suspend fun deleteGroceries() =
+        withContext(Dispatchers.IO) { groceryDao.deleteAllGroceries() }
 }
+

@@ -23,6 +23,6 @@ interface GroceryDao {
     @Query("UPDATE Grocery SET quantity = 0 WHERE quantity <> 0")
     abstract fun resetCart()
 
-//    @Query("SELECT COUNT(quantity) FROM Grocery GROUP BY type")
-//    abstract fun getPriceByCategory(): ALGO
+    @Query("DELETE FROM Grocery")
+    abstract fun deleteAllGroceries()
 }
