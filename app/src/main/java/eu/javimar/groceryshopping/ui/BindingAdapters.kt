@@ -45,8 +45,8 @@ fun TextView.calcTotalCart(value: Double)
     }
 }
 
-@BindingAdapter("showImage")
-fun ImageView.showImage(value: Double)
+@BindingAdapter("showEmptyCart")
+fun View.showEmptyCart(value: Double)
 {
     visibility = if(value <= 0.0) View.VISIBLE
     else View.GONE

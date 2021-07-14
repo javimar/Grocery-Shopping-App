@@ -25,6 +25,7 @@
             android:layout_marginTop="16dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textStyle="bold"
+            android:textAllCaps="true"
             android:text="@{groceryType}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

@@ -12,6 +12,8 @@
     <string name="checkout_cancel_button">Cancel</string>
     <string name="thankyoumessage">Thank you!</string>
     <string name="continue_shopping_button">Back to shopping</string>
+    <string name="lonely_cart">It\'s a bit lonely here, why don\'t you do some grocery shopping?</string>
+
 
     <!-- ERROR STRINGS -->
     <string name="err_nointernet">There is no internet connection</string>

@@ -73,13 +73,30 @@
             android:layout_height="96dp"
             android:layout_gravity="center"
             android:padding="16dp"
-            app:showImage="@{checkoutTotal}"
+            app:showEmptyCart="@{checkoutTotal}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_empty_cart"
             tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/empty_cart_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:gravity="center"
+            android:text="@string/lonely_cart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/empty_cart_icon"
+            app:showEmptyCart="@{checkoutTotal}" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,5 +1,7 @@
 package eu.javimar.groceryshopping
 
+import android.annotation.SuppressLint
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
@@ -24,6 +26,8 @@ class MainActivity : AppCompatActivity()
             )
         )
     }
+
+    @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
@@ -31,6 +35,8 @@ class MainActivity : AppCompatActivity()
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
 
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
@@ -47,5 +53,4 @@ class MainActivity : AppCompatActivity()
     {
         return navController.navigateUp()
     }
-
 }
